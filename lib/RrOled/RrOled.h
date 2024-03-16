@@ -8,7 +8,7 @@
 #include <U8glib.h>
 
 #define COL_MAX 16
-#define ROW_MAX 3
+#define ROW_MAX 4
 
 class RR_OLED
 {

@@ -8,7 +8,7 @@ void RR_OLED::println(U8GLIB u8g, char *s)
 
         if (x >= _row_max)
         {
-            this->writeBuf(u8g);
+            this->clearBuf();
             x = RR_OLED::_x;
         }
 

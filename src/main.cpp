@@ -18,6 +18,10 @@ void loop()
   rr.println(u8g, "Ryders Robot");
   rr.println(u8g, "test1");
   rr.println(u8g, "test2");
+  rr.println(u8g, "test3");
+
+  rr.println(u8g, "test4");
+  rr.println(u8g, "test5");
 
   u8g.firstPage();
   do
