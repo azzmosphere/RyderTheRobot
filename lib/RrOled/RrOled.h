@@ -7,6 +7,9 @@
 
 #include <U8glib.h>
 
+#define LINE_MAX 30 
+#define ROW_MAX 12
+
 class RR_OLED
 {
     public:
@@ -15,6 +18,8 @@ class RR_OLED
         u8g_uint_t _x = 0;
         u8g_uint_t _y = 22;
 
+    private:
+        uint8_t _screen[ROW_MAX][LINE_MAX];
 };
 
 #endif
