@@ -7,19 +7,29 @@
 
 #include <U8glib.h>
 
-#define LINE_MAX 30 
-#define ROW_MAX 12
+#define COL_MAX 16
+#define ROW_MAX 3
 
 class RR_OLED
 {
-    public:
-        void drawStr(U8GLIB _u8g, const char *s);
+public:
+    // writes a string to the buffer.
+    void println(U8GLIB u8g, char *s);
 
-        u8g_uint_t _x = 0;
-        u8g_uint_t _y = 22;
+    // write the buffer to the OLED screen
+    void writeBuf(U8GLIB u8g);
 
-    private:
-        uint8_t _screen[ROW_MAX][LINE_MAX];
+    // clear buffer
+    void clearBuf();
+
+    char *_buffer[ROW_MAX];
+    int _x = 0;
+
+private:    
+    int _y = 0;
+
+    const int _col_max = COL_MAX;
+    const int _row_max = ROW_MAX;
 };
 
 #endif

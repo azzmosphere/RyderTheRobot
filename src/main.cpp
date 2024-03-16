@@ -12,14 +12,17 @@ void setup()
 
 void loop()
 {
+
+  rr.clearBuf();
+
+  rr.println(u8g, "Ryders Robot");
+  rr.println(u8g, "test1");
+  rr.println(u8g, "test2");
+
   u8g.firstPage();
   do
   {
-    rr.drawStr(u8g, "1234567890123456");
-    rr.drawStr(u8g, "2234567890123456");
-    rr.drawStr(u8g, "3234567890123456");
-    rr._y = 22;
+    rr.writeBuf(u8g);
   } while (u8g.nextPage());
-
-  
+ 
 }

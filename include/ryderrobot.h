@@ -9,6 +9,8 @@ const uint8_t OLED_MOSI = 11;
 const uint8_t OLED_DC = 9;
 const uint8_t OLED_CS = 10;
 
+const int OLED_PRINT_OFFSET = 15;
+
 
 #define OLED_SETUP(M_U8G)  if ( M_U8G.getMode() == U8G_MODE_R3G3B2 ) { \
     M_U8G.setColorIndex(255);     \

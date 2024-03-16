@@ -1,17 +1,39 @@
 #include <RrOled.h>
 
+const int Y_PX_OFFSET = 15;
 
-void RR_OLED::drawStr(U8GLIB u8g, const char *s) {    
+void RR_OLED::println(U8GLIB u8g, char *s)
+{
+        int x = RR_OLED::_x;
+
+        if (x >= _row_max)
+        {
+            this->writeBuf(u8g);
+            x = RR_OLED::_x;
+        }
+
+        _buffer[x] = s;
+        RR_OLED::_x = x + 1;
+}
+
+void RR_OLED::writeBuf(U8GLIB u8g)
+{
+    uint8_t offset = Y_PX_OFFSET;
     u8g.setFont(u8g_font_unifont);
-    u8g.drawStr(_x, _y, s);
 
-    RR_OLED::_y = _y + 15;
+    for (int i = 1; i < (_x + 1); i++) {
+        u8g.drawStr(0, Y_PX_OFFSET * i, _buffer[(i -1)]);
+    }
 }
 
 
-// void clear_screen(void) {
-//   uint8_t i, j;
-//   for( i = 0; i < ROW_MAX; i++ )
-//     for( j = 0; j < LINE_MAX; j++ )
-//       RR_OLED::_screen[i][j] = 0;  
-// }
+void RR_OLED::clearBuf() 
+{
+        for (int x = 0; x < RR_OLED::_row_max; x++)
+        {
+            char c[COL_MAX];
+            c[0] = '\0';
+            _buffer[x] = c;
+        }
+        RR_OLED::_x = 0;
+}
