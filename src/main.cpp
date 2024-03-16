@@ -1,52 +1,32 @@
 #include <Arduino.h>
-#include <U8glib.h>
+#include <ryderrobot.h>
+#include <RrOled.h>
 
-const uint8_t OLED_CLK = 13;
-const uint8_t OLED_MOSI = 11;
-const uint8_t OLED_DC = 9;
-const uint8_t OLED_CS = 10;
-
-U8GLIB_SH1106_128X64 u8g(OLED_CLK, OLED_MOSI, OLED_DC, OLED_CS); // SW SPI Com: SCK = 13, MOSI = 11, CS = 10, A0 = 9
-
-// put function declarations here:
-void draw(void)
-{
-  // graphic commands to redraw the complete screen should be placed here
-  u8g.setFont(u8g_font_unifont);
-  // u8g.setFont(u8g_font_osb21);
-  u8g.drawStr(0, 22, "Hello World!");
-}
+U8GLIB_SH1106_128X64 u8g(OLED_CLK, OLED_MOSI, OLED_DC, OLED_CS);
+RR_OLED rr = RR_OLED();
 
 void setup()
 {
-  // put your setup code here, to run once:
-  if (u8g.getMode() == U8G_MODE_R3G3B2)
-  {
-    u8g.setColorIndex(255); // white
-  }
-  else if (u8g.getMode() == U8G_MODE_GRAY2BIT)
-  {
-    u8g.setColorIndex(3); // max intensity
-  }
-  else if (u8g.getMode() == U8G_MODE_BW)
-  {
-    u8g.setColorIndex(1); // pixel on
-  }
-  else if (u8g.getMode() == U8G_MODE_HICOLOR)
-  {
-    u8g.setHiColorByRGB(255, 255, 255);
-  }
+  OLED_SETUP(u8g)
 }
 
 void loop()
 {
-  // put your main code here, to run repeatedly:
-  // picture loop
+
+  rr.clearBuf();
+
+  rr.println(u8g, "Ryders Robot");
+  rr.println(u8g, "test1");
+  rr.println(u8g, "test2");
+  rr.println(u8g, "test3");
+
+  rr.println(u8g, "test4");
+  rr.println(u8g, "test5");
+
   u8g.firstPage();
   do
   {
-    draw();
+    rr.writeBuf(u8g);
   } while (u8g.nextPage());
-  // rebuild the picture after some delay
-  delay(50);
+ 
 }
