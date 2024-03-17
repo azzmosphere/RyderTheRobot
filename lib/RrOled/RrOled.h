@@ -22,14 +22,12 @@ public:
     // clear buffer
     void clearBuf();
 
-    char *_buffer[ROW_MAX];
-    int _x = 0;
+    char *_buffer[ROW_MAX];  // OLED printing buffer 
+    int _x = 0;              // current buffer row position
 
 private:    
-    int _y = 0;
-
-    const int _col_max = COL_MAX;
-    const int _row_max = ROW_MAX;
+    const int _col_max = COL_MAX; // max columns
+    const int _row_max = ROW_MAX; // max rows
 };
 
 #endif
