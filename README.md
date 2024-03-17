@@ -8,7 +8,7 @@ Arduino robot designed to use a ML to avoid walls.
 | -------------- | --------------  | ------------- |
 | Arduino Uno R3 | Micro Processor | Arduino       |
 | Ks0056         | OLED Display    | OLED          |
-| HC-SR04 (5v)   | Ultrasonict     | Sonar         |
+| HC-SR04 (5v)   | Ultrasonic      | Sonar         |
 
 
 # Pin Layout
@@ -35,3 +35,5 @@ Arduino robot designed to use a ML to avoid walls.
 * https://www.arduino.cc/reference/en/libraries/hcsr04-ultrasonic-sensor/
 * https://web.eece.maine.edu/~zhu/book/lab/HC-SR04%20User%20Manual.pdf
 * https://www.arduino.cc/reference/en/
+* https://www.instructables.com/How-to-Use-DC-to-DC-Buck-Converter-LM2596/
+* https://en.wikipedia.org/wiki/Reference_designator
