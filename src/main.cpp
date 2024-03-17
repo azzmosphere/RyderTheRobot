@@ -14,7 +14,9 @@ RR_OLED rr = RR_OLED();
 
 void setup()
 {
-  OLED_SETUP(u8g)
+    OLED_SETUP(u8g)
+    Serial.begin(BUAD_RATE);
+    HCSR04.begin(RR_HCSR04_TRIG, RR_HCSR04_ECHO);
 }
 
 void loop()
@@ -23,16 +25,15 @@ void loop()
   rr.clearBuf();
 
   rr.println(u8g, "Ryders Robot");
-  rr.println(u8g, "test1");
-  rr.println(u8g, "test2");
-  rr.println(u8g, "test3");
 
-  rr.println(u8g, "test4");
-  rr.println(u8g, "test5");
 
-  u8g.firstPage();
+  String distance = "S: ";
+  distance.concat(HCSR04.measureDistanceCm()[0]);
+  distance.concat(" cm");
+  rr.println(u8g, (char *) distance.c_str());
 
   // writes out the buffer to OLED
+  u8g.firstPage();
   do
   {
     rr.writeBuf(u8g);
