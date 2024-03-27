@@ -18,6 +18,8 @@ public:
     L298N(uint8_t in1, uint8_t in2, uint8_t in3, uint8_t in4, uint8_t ena, uint8_t enb);
 
     void default_move();
+
+    void move_forward(int speed);
 };
 
 #endif
