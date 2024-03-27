@@ -8,6 +8,7 @@
 #include <Arduino.h>
 #include <U8glib.h>
 #include <HCSR04.h>
+#include <L298N.h>
 
 // Custom type definitions
 typedef unsigned long ulong_t;
@@ -16,18 +17,28 @@ typedef unsigned long ulong_t;
  * PIN layouts,  
  */
 
-// Pins for OLED
+// Pins for L298N
+const int RRM_IN1=5;
+const int RRM_IN2=6;
+const int RRM_IN3=7;
+const int RRM_IN4=8;
+const int RRM_ENA=9;
+const int RRM_ENB=10;
+
+// Pins for HCSR04
+const uint8_t RR_HCSR04_ECHO = 11;  // echo pin
+const uint8_t RR_HCSR04_TRIG = 12;  // trigger pin
+
+
+
+// Pins for OLED - Note this is for debug purposes only, OLED is not hooked up for
+// RR-00
 const uint8_t OLED_CLK = 13;  // OLED CLK connected to Arduino pin 13
 const uint8_t OLED_MOSI = 11; // OLED MOSI connected to Arduino pin 11
 const uint8_t OLED_DC = 9;    // OLED DC connected Arduino pin 9
 const uint8_t OLED_CS = 10;   // OLEDCS connected Arduino pin 10 
 
-// Pins for HCSR04
-const uint8_t RR_HCSR04_TRIG = 4;  // trigger pin
-const uint8_t RR_HCSR04_ECHO = 2;  // echo pin
-
-// pixel offset, for each new line.
-const int OLED_PRINT_OFFSET = 15;
+const int OLED_PRINT_OFFSET = 15; // pixel offset, for each new line.
 
 
 // baud - a unit of transmission speed equal to the number of times a signal changes state per second. 
