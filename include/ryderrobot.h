@@ -36,7 +36,7 @@ const uint8_t RR_HCSR04_TRIG = 12;  // trigger pin
 const uint8_t OLED_CLK = 13;  // OLED CLK connected to Arduino pin 13
 const uint8_t OLED_MOSI = 11; // OLED MOSI connected to Arduino pin 11
 const uint8_t OLED_DC = 9;    // OLED DC connected Arduino pin 9
-const uint8_t OLED_CS = 10;   // OLEDCS connected Arduino pin 10 
+const uint8_t OLED_CS = 10;   // OLED CS connected Arduino pin 10 
 
 const int OLED_PRINT_OFFSET = 15; // pixel offset, for each new line.
 

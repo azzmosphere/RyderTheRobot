@@ -19,6 +19,11 @@ void loop()
 
 
   // HCSR04.measureDistanceCm()[0];
-  l298n.default_move();
+  l298n.move_forward(100);
+  delay(500); 
+
+  l298n.complete_stop();
   delay(1000); 
+
+  l298n.default_move();
 }

@@ -12,6 +12,8 @@ private:
     int _ENA=9;
     int _ENB=10;
 
+    const int MAX_SPEED = 200, MIN_SPEED = 1;
+
 public: 
     void begin();
 
@@ -19,7 +21,9 @@ public:
 
     void default_move();
 
-    void move_forward(int speed);
+    void move_forward(const int speed);
+
+    void complete_stop();
 };
 
 #endif
